@@ -18,7 +18,7 @@ module MigrationComments
   def self.setup
 
     base_names = %w(SchemaDumper) +
-        %w(AbstractAdapter AbstractAdapter::SchemaCreation AlterTable ColumnDefinition Column Table TableDefinition).map{|name| "ConnectionAdapters::#{name}"}
+        %w(AbstractAdapter SchemaCreation AlterTable ColumnDefinition Column Table TableDefinition).map{|name| "ConnectionAdapters::#{name}"}
 
     base_names.each do |base_name|
       ar_class = "ActiveRecord::#{base_name}".constantize
