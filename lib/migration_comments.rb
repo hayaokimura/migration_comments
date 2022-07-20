@@ -9,7 +9,7 @@ require 'migration_comments/active_record/connection_adapters/table'
 require 'migration_comments/active_record/connection_adapters/table_definition'
 require 'migration_comments/active_record/connection_adapters/alter_table'
 require 'migration_comments/active_record/connection_adapters/abstract_adapter'
-require 'migration_comments/active_record/connection_adapters/abstract_adapter/schema_creation'
+require 'migration_comments/active_record/connection_adapters/schema_creation'
 require 'migration_comments/active_record/connection_adapters/mysql2_adapter'
 require 'migration_comments/active_record/connection_adapters/postgresql_adapter'
 require 'migration_comments/active_record/connection_adapters/sqlite3_adapter'
@@ -18,7 +18,7 @@ module MigrationComments
   def self.setup
 
     base_names = %w(SchemaDumper) +
-        %w(AbstractAdapter AbstractAdapter::SchemaCreation AlterTable ColumnDefinition Column Table TableDefinition).map{|name| "ConnectionAdapters::#{name}"}
+        %w(AbstractAdapter SchemaCreation AlterTable ColumnDefinition Column Table TableDefinition).map{|name| "ConnectionAdapters::#{name}"}
 
     base_names.each do |base_name|
       ar_class = "ActiveRecord::#{base_name}".constantize

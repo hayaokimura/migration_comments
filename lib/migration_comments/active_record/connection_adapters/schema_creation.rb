@@ -1,4 +1,4 @@
-module MigrationComments::ActiveRecord::ConnectionAdapters::AbstractAdapter
+module MigrationComments::ActiveRecord::ConnectionAdapters
   module SchemaCreation
     def column_options(o)
       column_options = super(o)
